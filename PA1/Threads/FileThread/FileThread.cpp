@@ -88,7 +88,7 @@ void FileThread::operator()(KillData& killData)
 		// lock file buffer.
 		std::unique_lock<std::mutex> lockFileBuffer(m_FileBuffer->m_BufferMutex);
 
-		// wait till a notify is recieved and file buffer is empty.
+		// wait till a notify is received and file buffer is empty.
 		m_FileCoordinatorData.m_Coordinator_to_File_cv.wait(lockFileBuffer, std::move(fileBufferStatus));
 
 		// increment wave count.
